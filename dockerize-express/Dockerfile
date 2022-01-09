@@ -1,9 +1,9 @@
-#This script is only executed when docker "build command" luanched
+#This script is only executed when docker "build command" is launched
 
-#Upload or use local image as base image
+#Upload or use local very light Linux image as base image
 FROM alpine:3.12
 
-#Install from apk all need environement application 
+#Install from apk all need environement applications and packages
 RUN apk update && apk add nodejs npm vim
 
 # Create app working directory
@@ -14,7 +14,6 @@ ENV PORT 8080
 ENV HOST 0.0.0.0
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
 COPY package*.json ./
 
 # Install app dependencies
@@ -26,5 +25,5 @@ COPY . .
 #This port can be expose to the machine using the container
 EXPOSE 8080
 
-#give instruction to execute when ce container start
+#give instruction to execute when container will start
 CMD [ "npm", "start" ]
