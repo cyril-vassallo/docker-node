@@ -1,0 +1,7 @@
+{
+  "name": "dockerize_node_server",
+  "version": "1.0.3",
+  "description": "Node.js on Docker",
+  "author": "Cyril Vassallo <cyrilvssll34@gmail.com>",
+  "main": "server.js"
+}

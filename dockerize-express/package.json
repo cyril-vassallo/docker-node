@@ -1,0 +1,13 @@
+{
+  "name": "dockerize_express",
+  "version": "1.0.2",
+  "description": "Node.js - express on Docker",
+  "author": "Cyril Vassallo <cyrilvssll34@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server-express.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
