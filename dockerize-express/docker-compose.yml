@@ -1,0 +1,19 @@
+version: '3.9'
+
+services: 
+
+  # docker build --tag infinitydevops/express:1.0.5 ./
+  # docker run --name express -p 8080:8080 
+  app-express: 
+    image: infinitydevops/express:1.0.6
+    container_name: express
+    build: ./app-express
+    ports: 
+      - 8080:8080
+    volumes: 
+      - "./app-express/src:/usr/www/app/src"
+    networks: 
+      - app-express
+
+networks:
+  app-express:

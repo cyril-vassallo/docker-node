@@ -9,7 +9,10 @@ const PORT =  process.env.PORT;
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Home page');
+});
+app.get('/article', (req, res) => {
+  res.send('Article page');
 });
 
 app.listen(PORT, HOST);
