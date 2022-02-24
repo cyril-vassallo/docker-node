@@ -1,5 +1,0 @@
-# When image is created
-# In his exemple all node_module dependency are installed in container before the full copy of the project from your machine
-# you can avoid your local node_module cruch with ignored elements
-node_modules
-npm-debug.log

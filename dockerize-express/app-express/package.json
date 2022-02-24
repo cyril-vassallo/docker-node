@@ -1,13 +1,19 @@
 {
   "name": "dockerize_express",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "Node.js - express on Docker",
   "author": "Cyril Vassallo <cyrilvssll34@gmail.com>",
   "main": "server-express.js",
   "scripts": {
-    "start": "node src/server-express.js"
+    "start": "nodemon src/server-express.js",
+    "npm:install": "npm install"
   },
   "dependencies": {
-    "express": "^4.16.1"
+    "elasticsearch": "^16.7.3",
+    "express": "^4.16.1",
+    "node-fetch": "2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,19 +1,51 @@
-version: '3.9'
+version: "3.9"
 
-services: 
-
-  # docker build --tag infinitydevops/express:1.0.5 ./
-  # docker run --name express -p 8080:8080 
-  app-express: 
-    image: infinitydevops/express:1.0.6
+services:
+  app-express:
+    image: "node:14-alpine"
     container_name: express
-    build: ./app-express
-    ports: 
-      - 8080:8080
-    volumes: 
-      - "./app-express/src:/usr/www/app/src"
-    networks: 
-      - app-express
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=dev
+      - NODE_PORT=8080
+      - NODE_HOST=0.0.0.0
+      - ES_PORT=9200
+      - ES_HOST=elasticsearch
+    volumes:
+      - ./app-express:/home/node/app
+    ports:
+      - "8080:8080"
+    command: "npm start"
+    networks:
+      - elastic-net
+    depends_on:
+      - elasticsearch
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.2
+    container_name: elasticsearch
+    environment:
+      - cluster.name=docker-elastic
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - path.data=/usr/share/elasticsearch/data
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
+    ports:
+      - 9200:9200
+    volumes:
+      - elastic-vol:/usr/share/elasticsearch/data
+    networks:
+      - elastic-net
 
 networks:
-  app-express:
+  elastic-net:
+
+volumes:
+  elastic-vol:
