@@ -20,8 +20,7 @@ app.get('/', (req, res) => {
  */
 app.get('/author', async (req, res) => {
   try {
-    console.log(req)
-    const body = await SelectAuthors()
+    const body = await SelectAuthors(req.query.q)
     console.log(body)
     res.send(body);
   } catch (e) {
