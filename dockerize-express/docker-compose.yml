@@ -5,7 +5,7 @@ services:
   # docker build --tag infinitydevops/express:1.0.5 ./
   # docker run --name express -p 8080:8080 
   app-express: 
-    image: infinitydevops/express:1.0.6
+    image: infinitydevops/express:1.0.9
     container_name: express
     build: ./app-express
     ports: 
