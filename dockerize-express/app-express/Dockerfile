@@ -25,5 +25,3 @@ COPY . .
 #This port can be expose to the machine using the container
 EXPOSE 8080
 
-#give instruction to execute when container will start
-CMD [ "npm", "start" ]

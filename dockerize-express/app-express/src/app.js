@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const authors = require('./api/routes/authors');
 
-// routes
+// middleware
 app.use((req, res, next) => {
-    res.status(200).json({
-        message: 'Hello world!!!'
-    });
+    req.author = req.path.split('/')[2];
+    next();
 });
+
+app.use('/authors', authors)
 
 module.exports = app;
