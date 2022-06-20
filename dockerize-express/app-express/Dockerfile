@@ -7,7 +7,7 @@ FROM alpine:3.12
 RUN apk update && apk add nodejs npm vim
 
 # Create app working directory
-WORKDIR /usr/www/back
+WORKDIR /usr/www/app
 
 #Env that you can use inside container
 ENV PORT 8080
@@ -24,4 +24,3 @@ COPY . .
 
 #This port can be expose to the machine using the container
 EXPOSE 8080
-
