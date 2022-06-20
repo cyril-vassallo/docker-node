@@ -7,7 +7,7 @@ FROM alpine:3.12
 RUN apk update && apk add nodejs npm vim
 
 # Create app working directory
-WORKDIR /usr/www/app
+WORKDIR /usr/www/back
 
 #Env that you can use inside container
 ENV PORT 8080

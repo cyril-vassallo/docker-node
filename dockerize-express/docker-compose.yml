@@ -4,17 +4,30 @@ services:
 
   # docker build --tag infinitydevops/express:1.0.5 ./
   # docker run --name express -p 8080:8080 
-  app-express: 
-    image: infinitydevops/express:1.0.9
+  back: 
+    image: infinitydevops/express:1.1.0
     container_name: express
-    build: ./app-express
+    build: ./back
     ports: 
       - 8080:8080
     volumes: 
-      - "./app-express/src:/usr/www/app/src"
+      - "./back:/usr/www/back"
     networks: 
-      - app-express
+      - app-fullstack
     command: "npm run start"
 
+
+  front: 
+    image: node:14.15.4
+    container_name: react
+    ports: 
+      - 3000:3000
+    volumes: 
+      - "./front:/usr/www/front"
+    networks: 
+      - app-fullstack
+    command: "npm run start"
+
+
 networks:
-  app-express:
+  app-fullstack:

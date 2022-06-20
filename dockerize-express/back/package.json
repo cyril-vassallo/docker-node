@@ -1,6 +1,6 @@
 {
   "name": "dockerize_express",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Node.js - express in Docker",
   "author": "Cyril Vassallo <cyrilvssll34@gmail.com>",
   "main": "server.js",
