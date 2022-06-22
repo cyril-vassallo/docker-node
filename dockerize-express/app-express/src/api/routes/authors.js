@@ -27,7 +27,7 @@ router.get('/list', (req, res, next) => {
  */
 router.get('/:id', (req, res, next) => {
     res.status(200).json({
-        message: `author with id: ${req.params.id} was fetch`,
+        message: `author with id: ${req.params.id} was fetch, you can change the id in the url, all values accepted`,
         id : req.params.id
     });
 });

@@ -12,6 +12,7 @@
     "express": "^4.16.1"
   },
   "devDependencies": {
+    "cors": "^2.8.5",
     "nodemon": "^2.0.16"
   }
 }
