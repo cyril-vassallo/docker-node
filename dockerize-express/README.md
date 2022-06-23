@@ -31,11 +31,11 @@ curl --location --request PUT 'http://127.0.0.1:9200/elastic_index' \
 curl --location --request POST 'http://localhost:9200/elastic_index/author/\_bulk' \
  --header 'Content-Type: application/json' \
  --data-raw '{ "create" : { "\_index" : "elastic_index", "\_type" : "author", "\_id": 13 } }
-{"name": "lecompte", "firstname": "Ebon", "city" : "montpellier"}
+{"name": "lecompte", "firstname": "ébon", "city" : "montpellier"}
 { "create" : { "\_index" : "elastic_index", "\_type" : "author", "\_id": 14 } }
 {"name": "lavari", "firstname": "été", "city" : "paris"}
 { "create" : { "\_index" : "elastic_index", "\_type" : "author", "\_id": 15 } }
-{"name": "walis", "firstname": "maurice", "city" : "montpellier"}
+{"name": "air", "firstname": "france", "city" : "montpellier"}
 '
 
 ## Query app-express to get ES data
